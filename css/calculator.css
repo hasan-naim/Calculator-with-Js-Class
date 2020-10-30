@@ -1,0 +1,110 @@
+:root{
+    --main-theme: rgb(93, 205, 219);
+    --header-bg: white;
+    --main-bg: rgba(63, 59, 59, 0.5);
+    --footer-bg: rgb(255, 255, 255);
+    --button-bg: white;
+    --orange-btn-clr: white;
+    --button-hover-bg: rgba(93, 204, 219, 0.609);
+    --button-hover-clr: rgb(0, 0, 0);
+}
+[data-theme="dark"]{
+    --main-theme: rgb(0, 0, 0);
+    --header-bg: white;
+    --main-bg: rgba(63, 59, 59, 0.5);
+    --footer-bg: rgb(255, 255, 255);
+    --button-bg: white;
+    --orange-btn-clr: white;
+    --button-hover-bg: rgb(126, 126, 126);
+    --button-hover-clr: rgb(255, 255, 255);
+    
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    background: var(--main-theme);
+    color: rgb(37, 37, 37);
+}
+.container{
+    width: 350px;
+    min-height: 97vh;
+    margin: 10px auto;
+    display: grid;
+    grid-template-rows: 40px minmax(200px, auto) 400px;
+    border-radius: 3px;
+    
+}
+header{
+    background: var(--header-bg);
+    border-radius: 5px 5px 0px 0px ;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.dark-div span{
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 20px;
+}
+main{
+    background: var(--main-bg);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, minmax(80px, auto));
+    padding: 20px 10px;
+    color: rgb(255, 255, 255);
+    
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: right;
+}
+.current-display{
+    font-size: 50px;
+}
+.previous-display{
+    font-size: 35px;
+    margin-bottom: 10px;
+    color: rgb(218, 218, 218);
+}
+footer{
+    background: var(--footer-bg);
+    border-radius: 0px 0px 5px 5px;
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    padding: 10px;
+}
+footer button{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: cursive;
+    background: var(--button-bg);
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+
+    transition: 300ms all;
+}
+.orange{
+    background: var(--main-theme);
+    color: var(--orange-btn-clr);
+    border: 2px solid var(--main-theme);
+    transition: 400ms all;
+}
+footer button:hover{
+    background:var(--button-hover-bg);
+    color: var(--button-hover-clr);
+}
+.orange:hover{
+    background: white !important;
+    color: var(--main-theme) !important;
+    border: 2px solid var(--main-theme);
+}
+.span-2{
+    grid-column: span 2;
+}
