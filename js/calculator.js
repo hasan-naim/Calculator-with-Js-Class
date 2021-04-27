@@ -1,18 +1,36 @@
-const checkbox = document.querySelector(".checkbox");
+let darkMode = localStorage.getItem("darkMode");
+const darkModeToggleButton = document.querySelector(".dark_div_btn");
 
-let checkFunc = e => {
-    if(e.target.checked){
-        document.documentElement.setAttribute("data-theme", "dark");
+const enableDarkMode = () => {
+    // Add Dark class to the body
+    document.body.classList.add("dark-mode");
+    // Update dark mode in the localStorage
+    localStorage.setItem("darkMode", "enabled");
+}
+
+const disableDarkMode = () => {
+    // Remove Dark calss to the body
+    document.body.classList.remove("dark-mode");
+    // Update dark mode in the localStorage
+    localStorage.setItem("darkMode", null);
+}
+
+// To know dark was enabled or disabled when page is realoding
+if( darkMode === "enabled"){
+    enableDarkMode();
+}
+
+darkModeToggleButton.addEventListener("click", () => {
+    // EveryTime we click on the button we have to update darkMode variable.
+    darkMode = localStorage.getItem("darkMode");
+    if( darkMode !== "enabled"){
+        enableDarkMode();
     }else{
-        document.documentElement.setAttribute("data-theme", "light")
+        disableDarkMode();
     }
-};
+});
 
-checkbox.addEventListener("change", checkFunc, false);
-
-// calculator
-
-
+// Code For Calculator 
 
 
 class Calculator{
@@ -112,14 +130,6 @@ class Calculator{
     }
 }
 
-
-
-
-
-
-
-
-
 const numberButton = document.querySelectorAll(".number-btn");
 const operationButton = document.querySelectorAll(".operation-btn");
 const allClearButton = document.querySelector(".all-clear-btn");
@@ -132,7 +142,7 @@ const equalButton = document.querySelector(".equal-btn");
 const cal = new Calculator(previousDisplay, currentDisplay);
 
 
-
+// Adding Events To The Buttons
 
 
 allClearButton.addEventListener("click", () => {
@@ -160,13 +170,3 @@ operationButton.forEach(button => {
         cal.updateDisplay();
     })
 });
-
-
-
-
-
-
-
-
-
-

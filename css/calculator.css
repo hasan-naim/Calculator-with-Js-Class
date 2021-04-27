@@ -1,15 +1,5 @@
 :root{
-    --main-theme: rgb(93, 205, 219);
-    --header-bg: white;
-    --main-bg: rgba(63, 59, 59, 0.5);
-    --footer-bg: rgb(255, 255, 255);
-    --button-bg: white;
-    --orange-btn-clr: white;
-    --button-hover-bg: rgba(93, 204, 219, 0.609);
-    --button-hover-clr: rgb(0, 0, 0);
-}
-[data-theme="dark"]{
-    --main-theme: rgb(0, 0, 0);
+   --main-theme: rgb(0, 0, 0);
     --header-bg: white;
     --main-bg: rgba(63, 59, 59, 0.5);
     --footer-bg: rgb(255, 255, 255);
@@ -17,13 +7,30 @@
     --orange-btn-clr: white;
     --button-hover-bg: rgb(126, 126, 126);
     --button-hover-clr: rgb(255, 255, 255);
+    --orange-btn-bg: black;
+}
+.dark-mode{
+    --main-theme: #ececec;
+    --header-bg: white;
+    --main-bg: rgba(63, 59, 59, 0.5);
+    --footer-bg: white;
+    --button-bg:white;
+    --orange-btn-clr: white;
+    --button-hover-bg: var(--main-bg);
+    --button-hover-clr: rgb(255, 254, 254);
+    --orange-btn-bg: #393e46;
     
+}
+@font-face {
+    font-family: roboto;
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
 }
 *{
     box-sizing: border-box;
+    font-family: roboto;
 }
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: roboto;
     font-weight: normal;
     background: var(--main-theme);
     color: rgb(37, 37, 37);
@@ -48,6 +55,13 @@ header{
     font-weight: bold;
     font-family: cursive;
     font-size: 20px;
+}
+.dark_div_btn{
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    border: none;
+    
 }
 main{
     background: var(--main-bg);
@@ -81,7 +95,7 @@ footer{
 footer button{
     font-size: 20px;
     font-weight: bold;
-    font-family: cursive;
+    font-family: roboto;
     background: var(--button-bg);
     border: none;
     border-radius: 6px;
@@ -91,7 +105,7 @@ footer button{
     transition: 300ms all;
 }
 .orange{
-    background: var(--main-theme);
+    background: var(--orange-btn-bg);
     color: var(--orange-btn-clr);
     border: 2px solid var(--main-theme);
     transition: 400ms all;
@@ -102,9 +116,22 @@ footer button:hover{
 }
 .orange:hover{
     background: white !important;
-    color: var(--main-theme) !important;
-    border: 2px solid var(--main-theme);
+    color: var(--orange-btn-bg) !important;
+    border: 2px solid var(--orange-btn-bg);
 }
 .span-2{
     grid-column: span 2;
+}
+/*  Media Quries    */
+
+@media only screen and (max-width: 430px){
+    .container{
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 350px){
+    .container{
+        width: 250px;
+    }
 }
